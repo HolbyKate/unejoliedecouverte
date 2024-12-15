@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CooptMe - Une jolie découverte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        video::-webkit-media-controls {
+            display: none;
+        }
+
+        video::-webkit-media-controls-enclosure {
+            display: none;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Retour à l'accueil</a>
+    </nav>
+    <div class="content">
+        <h1>CooptMe</h1>
+        <div class="video-container">
+           <video autoplay loop muted playsinline webkit-playsinline>
+                <source src="logo_bleu_video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+        <p>CooptMe est une application innovante qui révolutionne le processus de recrutement en entreprise. En utilisant la puissance de la cooptation et l'intégration avec LinkedIn, nous facilitons la connexion entre les talents et les opportunités professionnelles. Cooptme est une application mobile de réseautage professionnel qui s'intègre à LinkedIn pour faciliter et optimiser la gestion des contacts professionnels lors d'événements. L'application scanne les QR codes sur les badges des participants pour récupérer et catégoriser automatiquement leurs profils LinkedIn.</p>
+        <p>Notre solution permet aux entreprises de :</p>
+        <ul>
+            <li>Identifier rapidement les meilleurs talents</li>
+            <li>Réduire les coûts de recrutement</li>
+            <li>Améliorer la qualité des embauches</li>
+            <li>Engager les employés dans le processus de recrutement</li>
+        </ul>
+    </div>
+</body>
+</html>
