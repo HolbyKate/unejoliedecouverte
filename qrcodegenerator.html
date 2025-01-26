@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish QR Code Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F4F4F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .headerContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .welcomeText {
+      font-size: 24px;
+      font-weight: 600;
+      color: #4247BD;
+    }
+
+    .scanButton {
+      width: 58px;
+      height: 58px;
+      border-radius: 24px;
+      background-color: #FF8F66;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .notificationBar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #4247BD;
+      padding: 18px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .notificationText {
+      font-size: 14px;
+      color: #FFFFFF;
+      margin-left: 12px;
+    }
+
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+      background-color: #FFFFFF;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .formGroup {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .generateButton {
+      width: 100%;
+      padding: 10px;
+      background-color: #4A90E2;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .generateButton:hover {
+      background-color: #357ABD;
+    }
+
+    .qrCodeContainer {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    canvas {
+      margin: auto;
+      display: block;
+      border: 2px solid #4A90E2;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="headerContainer">
+    <h1 class="welcomeText">QR Code Generator</h1>
+    <div class="scanButton">🔍</div>
+  </div>
+
+  <div class="notificationBar">
+    <p class="notificationText">Fill in the form below to generate your personalized QR Code!</p>
+  </div>
+
+  <!-- Form Container -->
+  <div class="formContainer">
+    <div class="formGroup">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" placeholder="Enter First Name">
+    </div>
+    <div class="formGroup">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" placeholder="Enter Last Name">
+    </div>
+    <div class="formGroup">
+      <label for="job">Job</label>
+      <input type="text" id="job" placeholder="Enter Job">
+    </div>
+    <div class="formGroup">
+      <label for="company">Company</label>
+      <input type="text" id="company" placeholder="Enter Company">
+    </div>
+    <div class="formGroup">
+      <label for="url">URL</label>
+      <input type="text" id="url" placeholder="Enter URL">
+    </div>
+    <div class="formGroup">
+      <label for="event">Event</label>
+      <input type="text" id="event" placeholder="Enter Event">
+    </div>
+    <button class="generateButton" id="generateBtn">Generate QR Code</button>
+  </div>
+
+  <div class="qrCodeContainer" id="qrCodeContainer"></div>
+
+  <script>
+    const generateBtn = document.getElementById("generateBtn");
+    const qrCodeContainer = document.getElementById("qrCodeContainer");
+
+    generateBtn.addEventListener("click", () => {
+      const url = document.getElementById("url").value;
+
+      if (!url) {
+        alert("Please enter a valid URL.");
+        return;
+      }
+
+      const qrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        data: url,
+        image: "./Logo_cooptme.png",
+        dotsOptions: {
+          color: "#333",
+          type: "rounded",
+        },
+        backgroundOptions: {
+          color: "#FFFFFF",
+        },
+        imageOptions: {
+          crossOrigin: "anonymous",
+          margin: 10,
+          scale: 0.6,
+        },
+      });
+
+      qrCodeContainer.innerHTML = "";
+      qrCode.append(qrCodeContainer);
+    });
+  </script>
+</body>
+</html>
